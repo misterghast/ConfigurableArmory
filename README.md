@@ -13,7 +13,7 @@ in your minecraft directory named whatever you want, with this as the contents:
 ```
 {  
     id: name  
-    type: tool  
+    type: tool <- don't change this part
     translationKey: translation.key.for.lang.file  
     material: materialName  
     tab: tabId  
