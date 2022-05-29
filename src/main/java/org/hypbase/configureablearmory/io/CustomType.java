@@ -1,2 +1,7 @@
-package org.hypbase.configureablearmory.io;public class CustomType {
+package org.hypbase.configureablearmory.io;
+
+public enum CustomType {
+    ARMOR,
+    WEAPON,
+    TOOL;
 }

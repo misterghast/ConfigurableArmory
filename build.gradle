@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         maven { 
-			url = 'https://maven.cleanroommc.com' 
+			url = 'https://files.minecraftforge.net/maven'
 		}
 		maven { 
 			url = 'https://repo.spongepowered.org/maven' 
@@ -70,7 +70,9 @@ dependencies {
 	if (project.use_mixins.toBoolean()) {
 		deobfCompile 'zone.rong:mixinbooter:4.2'
     }
-	
+
+	compile "org.hjson:hjson:3.0.0"
+
 }
 
 sourceSets {
@@ -80,6 +82,7 @@ sourceSets {
     }
 
 }
+
 
 processResources {
     // this will ensure that this task is redone when the versions change.
