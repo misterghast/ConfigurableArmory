@@ -14,7 +14,7 @@ public class CustomAssetsPack extends FolderResourcePack {
 
     public CustomAssetsPack() {
         super(new File(ConfigurableArmory.ROOT_DIRECTORY, "cosmetic"));
-        System.out.println(resourcePackFile.mkdir());
+        resourcePackFile.mkdir();
         File temp = new File(resourcePackFile, "assets");
         temp.mkdir();
 

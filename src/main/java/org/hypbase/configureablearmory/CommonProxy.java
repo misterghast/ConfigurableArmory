@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.hypbase.configureablearmory.client.CustomAssetsPack;
 import org.hypbase.configureablearmory.io.CustomItems;
 
 import java.io.File;
@@ -11,7 +12,6 @@ import java.io.File;
 @Mod.EventBusSubscriber
 public class CommonProxy {
     protected final CustomItems items;
-
     public CommonProxy() {
         items = new CustomItems(ConfigurableArmory.ROOT_DIRECTORY);
     }

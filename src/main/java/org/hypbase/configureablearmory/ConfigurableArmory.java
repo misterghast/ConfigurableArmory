@@ -18,6 +18,8 @@ public class ConfigurableArmory {
     @SidedProxy(modId="configurablearmory", clientSide="org.hypbase.configureablearmory.ClientProxy", serverSide="org.hypbase.configureablearmory.CommonProxy")
     public static CommonProxy proxy;
 
+
+    static CustomAssetsPack pack;
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(proxy);
@@ -29,6 +31,14 @@ public class ConfigurableArmory {
 
 
         proxy.initItems();
+    }
+
+    public static void insertFPack(List resourceList) {
+        if(pack == null) {
+            pack = new CustomAssetsPack();
+        }
+        System.out.println("balls");
+        resourceList.add(pack);
     }
 
 }
