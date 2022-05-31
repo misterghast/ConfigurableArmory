@@ -152,6 +152,38 @@ public class CustomItems {
                             }
                         }
 
+                        HashMap<String, Double> extraAttributes = new HashMap<String, Double>();
+                        JsonValue extraAttributesJson = json.get("extraAttributes");
+                        if(extraAttributesJson != null) {
+                            JsonArray extraAttributesArray = extraAttributesJson.asArray();
+                            for(int i = 0; i < extraAttributesArray.size(); i++) {
+                                JsonValue entry = extraAttributesArray.get(i);
+                                if(entry != null) {
+                                    JsonArray entryArray = entry.asArray();
+                                    JsonValue val1 = entryArray.get(0);
+                                    JsonValue val2 = entryArray.get(1);
+
+                                    try {
+                                        String key = null;
+                                        if(val1 != null){
+                                            key = val1.asString();
+                                        }
+
+                                        Double val = null;
+                                        if(val2 != null) {
+                                            val = val2.asDouble();
+                                        }
+
+                                        extraAttributes.put(key, val);
+                                    } catch(UnsupportedOperationException e) {
+
+                                    }
+                                }
+                            }
+                        } else {
+                            extraAttributes = null;
+                        }
+
                         float attackSpeed = 0;
                         float toolAttackDamage = 0;
                         if(template == null || template.equals("none")) {
@@ -174,7 +206,7 @@ public class CustomItems {
                             }
                         }
                         Set<Block> effective = new HashSet<Block>();
-                        items.put(id, new CustomTool(translationKey, attackSpeed, toolAttackDamage, registryName, material, tab, toolClasses, effective));
+                        items.put(id, new CustomTool(translationKey, attackSpeed, toolAttackDamage, registryName, material, tab, toolClasses, extraAttributes, effective));
                     } else if(json.get("type").asString().equals("armor")) {
 
                     }

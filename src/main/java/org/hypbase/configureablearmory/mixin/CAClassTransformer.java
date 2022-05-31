@@ -22,10 +22,21 @@ public class CAClassTransformer implements IClassTransformer {
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
         if(transformedName.equals("net.minecraft.client.Minecraft")) {
             return patch(basicClass);
-        } else {
+        } //else if(transformedName.equals("net.minecraft.entity.player.EntityPlayer")){
+            //return patchPlayer(basicClass);
+        //}
+        return basicClass;
+    }
+
+    private byte[] patchPlayer(byte[] basicClass) {
+        ClassNode n = new ClassNode();
+        ClassReader r = new ClassReader(basicClass);
+        r.accept(n, 0);
+
+        for(MethodNode mn : n.methods) {
 
         }
-        return basicClass;
+        return null;
     }
 
     private byte[] patch(byte[] basicClass) {
